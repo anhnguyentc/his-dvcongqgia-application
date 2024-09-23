@@ -1,22 +1,10 @@
-curl --location 'https://mgsimotest.sbv.gov.vn/simo/tin-dien-so-du-tkdbtt-cho-vdt/1.0/thu-thap-so-du-tkdbtt-tai-tgtt-api' \
---header 'Content-Type: application/json' \
---header 'maYeuCau: 550e8400-e29b-41d4-a716-446655440000' \
---header 'kyBaoCao: 09/2024' \
---header 'Authorization: ••••••' \
---data '[
-    {
-        "thoiGianDuLieu": "01/09/23 12:00:00",
-        "thoiGianGuiBaoCao": "01/09/23 13:00:00",
-        "maToChucTGTT": "ORG123456",
-        "soHieuTKDBTT": "TKDBTT001",
-        "soduTKDBTT": 1000000
-    },
-    {
-        "thoiGianDuLieu": "02/09/23 12:00:00",
-        "thoiGianGuiBaoCao": "02/09/23 13:00:00",
-        "maToChucTGTT": "ORG654321",
-        "soHieuTKDBTT": "TKDBTT002",
-        "soduTKDBTT": 2000000
-    }
-]
-'
+var client = new HttpClient();
+var request = new HttpRequestMessage(HttpMethod.Post, "https://mgsimotest.sbv.gov.vn/simo/tin-dien-so-du-tkdbtt-cho-vdt/1.0/thu-thap-so-du-tkdbtt-tai-tgtt-api");
+request.Headers.Add("maYeuCau", "550e8400-e29b-41d4-a716-446655440000");
+request.Headers.Add("kyBaoCao", "09/2024");
+request.Headers.Add("Authorization", "Bearer eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJzaW1vLWxwYmFuayIsImF1dCI6IkFQUExJQ0FUSU9OX1VTRVIiLCJhdWQiOiJpc2tIUlNYbG54RDBzd3psVnZvV2RmVDNMMVlhIiwibmJmIjoxNzI3MDU0Njc1LCJhenAiOiJpc2tIUlNYbG54RDBzd3psVnZvV2RmVDNMMVlhIiwic2NvcGUiOiJkZWZhdWx0IiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwiZXhwIjoxNzI3MDU4Mjc1LCJpYXQiOjE3MjcwNTQ2NzUsImp0aSI6ImM0YmYyMjUyLTdlODgtNDdiYi05YWRmLTZiOGJmNmQ4ZmY3MCJ9.sX2g9GLaN1deaRLCP5klgjUPKoGxB4QfHfYVSwOsOMWULqaHFg4SWqFBTTHsL3V17CQj8ZT9hnbZAYlUmmfIReO-6nUJ7vXCRuYZXzaaZYCwpu8ydzteBq0uixUYoCz8QnEMsMOlaY4-Wt3z4ZS7PbbVIFABivvsmSlXjS2MU3A74tvw_kwosB8QQkUaOa0BNEeyOkZYOWJLclABKXm_TFXhIyHZksW183W5ezY6LTHh8cul02V1ImGzqTnrqqP7Q3gxgSkdWOSbQSG7bBelrTWcaDewr-GPFMZTtA5eE4gVTq_cnOXoHEoNuTNpSEp6BxZ9Q6rZpWHBYjuUd8Yv7Q");
+var content = new StringContent("[\r\n    {\r\n        \"thoiGianDuLieu\": \"01/09/23 12:00:00\",\r\n        \"thoiGianGuiBaoCao\": \"01/09/23 13:00:00\",\r\n        \"maToChucTGTT\": \"ORG123456\",\r\n        \"soHieuTKDBTT\": \"TKDBTT001\",\r\n        \"soduTKDBTT\": 1000000\r\n    },\r\n    {\r\n        \"thoiGianDuLieu\": \"02/09/23 12:00:00\",\r\n        \"thoiGianGuiBaoCao\": \"02/09/23 13:00:00\",\r\n        \"maToChucTGTT\": \"ORG654321\",\r\n        \"soHieuTKDBTT\": \"TKDBTT002\",\r\n        \"soduTKDBTT\": 2000000\r\n    }\r\n]\r\n", null, "application/json");
+request.Content = content;
+var response = await client.SendAsync(request);
+response.EnsureSuccessStatusCode();
+Console.WriteLine(await response.Content.ReadAsStringAsync());
