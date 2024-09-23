@@ -1,1 +1,22 @@
-https://docs.google.com/spreadsheets/d/1NpvOUDOo5VGCSZi3ANUvE7bUoou_oi55xrnlgJeWCG4/edit?gid=963232019#gid=963232019
+curl --location 'https://mgsimotest.sbv.gov.vn/simo/tin-dien-so-du-tkdbtt-cho-vdt/1.0/thu-thap-so-du-tkdbtt-tai-tgtt-api' \
+--header 'Content-Type: application/json' \
+--header 'maYeuCau: 550e8400-e29b-41d4-a716-446655440000' \
+--header 'kyBaoCao: 09/2024' \
+--header 'Authorization: ••••••' \
+--data '[
+    {
+        "thoiGianDuLieu": "01/09/23 12:00:00",
+        "thoiGianGuiBaoCao": "01/09/23 13:00:00",
+        "maToChucTGTT": "ORG123456",
+        "soHieuTKDBTT": "TKDBTT001",
+        "soduTKDBTT": 1000000
+    },
+    {
+        "thoiGianDuLieu": "02/09/23 12:00:00",
+        "thoiGianGuiBaoCao": "02/09/23 13:00:00",
+        "maToChucTGTT": "ORG654321",
+        "soHieuTKDBTT": "TKDBTT002",
+        "soduTKDBTT": 2000000
+    }
+]
+'
